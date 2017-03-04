@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,303 +9,334 @@
     tools:context="jacob.ryan.gus.com.darwin.homeautomation.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <!-- LIGHTS POWER -->
     <RelativeLayout
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/main_lights_layout">
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/teal"
-            android:id="@+id/button_lights"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/lights"
-            android:elevation="8dp"
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:layout_marginTop="8dp"
-            android:id="@+id/text_lights"/>
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="16dp"
-            android:src="@drawable/ic_power_grey"
-            android:elevation="8dp"
-            android:id="@+id/icon_lights"/>
-
-    </RelativeLayout>
-
-    <!-- TV POWER -->
-    <RelativeLayout
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/main_tv_layout">
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/red"
-            android:id="@+id/button_tv"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/tv"
-            android:elevation="8dp"
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:layout_marginTop="8dp"
-            android:id="@+id/text_tv"/>
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="16dp"
-            android:src="@drawable/ic_power_grey"
-            android:elevation="8dp"
-            android:id="@+id/icon_tv"/>
-
-    </RelativeLayout>
-
-    <!-- MUSIC PLAYBACK -->
-    <RelativeLayout
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/main_music_layout">
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/orange"
-            android:id="@+id/button_music"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Music"
-            android:elevation="8dp"
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:layout_marginTop="8dp"
-            android:id="@+id/text_music"/>
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="16dp"
-            android:src="@drawable/ic_play_grey"
-            android:elevation="8dp"
-            android:id="@+id/icon_music"/>
-
-    </RelativeLayout>
-
-    <!-- DATA VIEW -->
-    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="@color/light_blue"
-        android:layout_marginTop="16dp"
-        android:layout_below="@id/main_tv_layout">
+        android:layout_height="wrap_content">
 
-        <!-- LEFT HALF -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+        <!-- LIGHTS POWER -->
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/main_lights_layout">
 
-            <!-- LEFT TOP -->
-            <RelativeLayout
+            <Button
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:orientation="horizontal"
-                android:paddingTop="4dp"
-                android:layout_weight="1">
+                android:layout_height="match_parent"
+                android:background="@color/teal"
+                android:id="@+id/button_lights"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="@string/temperature"
-                    android:textSize="20sp"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="29"
-                    android:textColor="@color/white"
-                    android:textSize="48sp"
-                    android:textStyle="italic"
-                    android:id="@+id/data_temp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="\u00b0F"
-                    android:textColor="@color/white"
-                    android:textSize="32sp"
-                    android:textStyle="italic"
-                    android:layout_toEndOf="@id/data_temp"
-                    android:layout_alignBaseline="@id/data_temp"
-                    android:id="@+id/units_temp"/>
-
-            </RelativeLayout>
-
-            <View
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="8dp"
-                android:background="@color/white"/>
+                android:layout_height="wrap_content"
+                android:text="@string/lights"
+                android:elevation="8dp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="8dp"
+                android:id="@+id/text_lights"/>
 
-            <!-- LEFT BOTTOM -->
-            <RelativeLayout
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/ic_power_grey"
+                android:elevation="8dp"
+                android:id="@+id/icon_lights"/>
+
+        </RelativeLayout>
+
+        <!-- TV POWER -->
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/main_tv_layout">
+
+            <Button
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:orientation="horizontal"
-                android:paddingTop="4dp"
-                android:layout_weight="1">
+                android:layout_height="match_parent"
+                android:background="@color/red"
+                android:id="@+id/button_tv"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="@string/power_usage"
-                    android:textSize="20sp"
-                    android:gravity="center"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv"
+                android:elevation="8dp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="8dp"
+                android:id="@+id/text_tv"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="29"
-                    android:textColor="@color/white"
-                    android:textSize="48sp"
-                    android:textStyle="italic"
-                    android:id="@+id/data_power"/>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/ic_power_grey"
+                android:elevation="8dp"
+                android:id="@+id/icon_tv"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="wH"
-                    android:textColor="@color/white"
-                    android:textSize="32sp"
-                    android:textStyle="italic"
-                    android:layout_toEndOf="@id/data_power"
-                    android:layout_alignBaseline="@id/data_power"
-                    android:id="@+id/units_power"/>
+        </RelativeLayout>
 
-            </RelativeLayout>
+        <!-- MUSIC PLAYBACK -->
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/main_music_layout">
 
-        </LinearLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/orange"
+                android:id="@+id/button_music"/>
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="@color/white"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Music"
+                android:elevation="8dp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="8dp"
+                android:id="@+id/text_music"/>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/ic_play_grey"
+                android:elevation="8dp"
+                android:id="@+id/icon_music"/>
+
+        </RelativeLayout>
+
+        <include layout="@layout/content_lights"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"/>
+            android:layout_below="@id/main_lights_layout"
+            android:id="@+id/main_color_options"/>
 
-        <!-- RIGHT HALF -->
+        <!-- DATA VIEW -->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@color/light_blue"
+            android:layout_marginTop="16dp"
+            android:layout_below="@id/main_color_options"
+            android:id="@+id/data_layout">
 
-            <!-- RIGHT TOP -->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:orientation="horizontal"
-                android:paddingTop="4dp"
-                android:layout_weight="1">
+            <!-- LEFT HALF -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                <TextView
+                <!-- LEFT TOP -->
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="@string/humidity"
-                    android:textSize="20sp"
-                    android:gravity="center"/>
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    android:paddingTop="16dp"
+                    android:layout_weight="1">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="29"
-                    android:textColor="@color/white"
-                    android:textSize="48sp"
-                    android:textStyle="italic"
-                    android:id="@+id/data_humidity"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:text="@string/temperature"
+                        android:textSize="20sp"
+                        android:gravity="center"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="%"
-                    android:textColor="@color/white"
-                    android:textSize="32sp"
-                    android:textStyle="italic"
-                    android:layout_toEndOf="@id/data_humidity"
-                    android:layout_alignBaseline="@id/data_humidity"
-                    android:id="@+id/units_humidity"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="24dp"
+                        android:text="29"
+                        android:textColor="@color/white"
+                        android:textSize="60sp"
+                        android:textStyle="italic"
+                        android:id="@+id/data_temp" />
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="\u00b0F"
+                        android:textColor="@color/white"
+                        android:textSize="32sp"
+                        android:textStyle="italic"
+                        android:layout_toEndOf="@id/data_temp"
+                        android:layout_alignBaseline="@id/data_temp"
+                        android:id="@+id/units_temp"/>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@color/white"/>
+
+                <!-- LEFT BOTTOM -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    android:paddingTop="16dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:text="@string/power_usage"
+                        android:textSize="20sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="24dp"
+                        android:text="29"
+                        android:textColor="@color/white"
+                        android:textSize="60sp"
+                        android:textStyle="italic"
+                        android:id="@+id/data_power"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="wH"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:textStyle="italic"
+                        android:layout_toEndOf="@id/data_power"
+                        android:layout_alignBaseline="@id/data_power"
+                        android:id="@+id/units_power"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
 
             <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginEnd="8dp"
-                android:background="@color/white"/>
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"/>
 
-            <!-- RIGHT BOTTOM -->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:orientation="horizontal"
-                android:paddingTop="4dp"
-                android:layout_weight="1">
+            <!-- RIGHT HALF -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                <TextView
+                <!-- RIGHT TOP -->
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="@string/entrances_exits"
-                    android:textSize="20sp"
-                    android:gravity="center"/>
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    android:paddingTop="16dp"
+                    android:layout_weight="1">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="29"
-                    android:textColor="@color/white"
-                    android:textSize="48sp"
-                    android:textStyle="italic"
-                    android:id="@+id/data_entrances"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:text="@string/humidity"
+                        android:textSize="20sp"
+                        android:gravity="center"/>
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="24dp"
+                        android:text="29"
+                        android:textColor="@color/white"
+                        android:textSize="60sp"
+                        android:textStyle="italic"
+                        android:id="@+id/data_humidity"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="%"
+                        android:textColor="@color/white"
+                        android:textSize="28sp"
+                        android:textStyle="italic"
+                        android:layout_toEndOf="@id/data_humidity"
+                        android:layout_alignBaseline="@id/data_humidity"
+                        android:id="@+id/units_humidity"/>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@color/white"/>
+
+                <!-- RIGHT BOTTOM -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    android:paddingTop="16dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:text="@string/entrances_exits"
+                        android:textSize="20sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="24dp"
+                        android:text="29"
+                        android:textColor="@color/white"
+                        android:textSize="60sp"
+                        android:textStyle="italic"
+                        android:id="@+id/data_entrances"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/data_layout"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/red"
+            android:textColor="@color/white"
+            android:text="refresh"/>
 
-</RelativeLayout>
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

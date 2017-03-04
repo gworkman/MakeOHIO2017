@@ -9,5 +9,16 @@
     <color name="light_blue">#82A2D9</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
-    <color name="grey">#A4ffffff</color>
+    <color name="grey">#A4FFFFFF</color>
+
+    <color name="picker_blue">#45E6E0</color>
+    <color name="picker_dark_blue">#3C5CFA</color>
+    <color name="picker_dark_green">#51C957</color>
+    <color name="picker_green">#75F065</color>
+    <color name="picker_orange">#EDA33B</color>
+    <color name="picker_purple">#7B5BE3</color>
+    <color name="picker_red">#F74548</color>
+    <color name="picker_yellow">#D3EB4D</color>
+
+    <color name="dark_grey">#a4000000</color>
 </resources>
