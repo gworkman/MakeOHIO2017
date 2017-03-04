@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Home Automation</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="lights">Lights</string>
+    <string name="tv">TV</string>
+    <string name="temperature">Temperature</string>
+    <string name="humidity">Humidity</string>
+    <string name="entrances_exits">Entrances/Exits</string>
+    <string name="power_usage">Power Usage</string>
 </resources>
