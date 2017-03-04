@@ -18,7 +18,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/teal"/>
+            android:background="@color/teal"
+            android:id="@+id/button_lights"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -28,7 +29,8 @@
             android:textColor="@color/white"
             android:gravity="center"
             android:textSize="20sp"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp"
+            android:id="@+id/text_lights"/>
 
         <ImageView
             android:layout_width="50dp"
@@ -36,8 +38,9 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="16dp"
-            android:src="@drawable/ic_power"
-            android:elevation="8dp"/>
+            android:src="@drawable/ic_power_grey"
+            android:elevation="8dp"
+            android:id="@+id/icon_lights"/>
 
     </RelativeLayout>
 
@@ -51,7 +54,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/red"/>
+            android:background="@color/red"
+            android:id="@+id/button_tv"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -61,7 +65,8 @@
             android:textColor="@color/white"
             android:gravity="center"
             android:textSize="20sp"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp"
+            android:id="@+id/text_tv"/>
 
         <ImageView
             android:layout_width="50dp"
@@ -69,8 +74,9 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="16dp"
-            android:src="@drawable/ic_power"
-            android:elevation="8dp"/>
+            android:src="@drawable/ic_power_grey"
+            android:elevation="8dp"
+            android:id="@+id/icon_tv"/>
 
     </RelativeLayout>
 
@@ -84,7 +90,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/orange"/>
+            android:background="@color/orange"
+            android:id="@+id/button_music"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -94,7 +101,8 @@
             android:textColor="@color/white"
             android:gravity="center"
             android:textSize="20sp"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp"
+            android:id="@+id/text_music"/>
 
         <ImageView
             android:layout_width="50dp"
@@ -102,8 +110,9 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="16dp"
-            android:src="@drawable/ic_play"
-            android:elevation="8dp"/>
+            android:src="@drawable/ic_play_grey"
+            android:elevation="8dp"
+            android:id="@+id/icon_music"/>
 
     </RelativeLayout>
 
@@ -146,7 +155,7 @@
                     android:textColor="@color/white"
                     android:textSize="48sp"
                     android:textStyle="italic"
-                    android:id="@+id/data_temp"/>
+                    android:id="@+id/data_temp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -160,7 +169,7 @@
                     android:id="@+id/units_temp"/>
 
             </RelativeLayout>
-            
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
