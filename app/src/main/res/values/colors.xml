@@ -10,6 +10,7 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="grey">#A4FFFFFF</color>
+    <color name="transparent">#00000000</color>
 
     <color name="picker_blue">#45E6E0</color>
     <color name="picker_dark_blue">#3C5CFA</color>
@@ -22,4 +23,9 @@
 
     <color name="dark_grey">#a4000000</color>
     <color name="grey_remote">#7d000000</color>
+
+    <color name="bright">#0a000000</color>
+    <color name="medium_bright">#2d000000</color>
+    <color name="medium_dim">#4a000000</color>
+    <color name="dim">#6a000000</color>
 </resources>

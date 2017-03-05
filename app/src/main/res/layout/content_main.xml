@@ -13,8 +13,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:animateLayoutChanges="true">
+        android:paddingTop="16dp">
 
         <!-- LIGHTS POWER -->
         <RelativeLayout
@@ -25,7 +24,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/teal"
+                android:backgroundTint="@color/teal"
                 android:id="@+id/button_lights"/>
 
             <TextView
@@ -61,7 +60,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/red"
+                android:backgroundTint="@color/red"
                 android:id="@+id/button_tv"/>
 
             <TextView
@@ -97,13 +96,13 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/orange"
+                android:backgroundTint="@color/orange"
                 android:id="@+id/button_music"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Music"
+                android:text="Tea"
                 android:elevation="8dp"
                 android:textColor="@color/white"
                 android:gravity="center"
@@ -117,7 +116,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="16dp"
-                android:src="@drawable/ic_play_grey"
+                android:src="@drawable/ic_tea_grey"
                 android:elevation="8dp"
                 android:id="@+id/icon_music"/>
 
@@ -127,20 +126,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/main_lights_layout"
-            android:animateLayoutChanges="true"
             android:id="@+id/options_layout">
 
             <include layout="@layout/content_lights"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="16dp"
                 android:visibility="gone"
                 android:id="@+id/main_color_options" />
 
             <include layout="@layout/content_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="16dp"
                 android:visibility="gone"
                 android:id="@+id/main_tv_options" />
 
@@ -149,7 +149,7 @@
         <!-- DATA VIEW -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="150dp"
             android:background="@color/light_blue"
             android:layout_marginTop="16dp"
             android:layout_below="@id/options_layout"
@@ -200,53 +200,6 @@
                         android:layout_toEndOf="@id/data_temp"
                         android:layout_alignBaseline="@id/data_temp"
                         android:id="@+id/units_temp"/>
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="8dp"
-                    android:background="@color/white"/>
-
-                <!-- LEFT BOTTOM -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:orientation="horizontal"
-                    android:paddingTop="16dp"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:text="@string/power_usage"
-                        android:textSize="20sp"
-                        android:gravity="center"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="24dp"
-                        android:text="29"
-                        android:textColor="@color/white"
-                        android:textSize="60sp"
-                        android:textStyle="italic"
-                        android:id="@+id/data_power"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="wH"
-                        android:textColor="@color/white"
-                        android:textSize="24sp"
-                        android:textStyle="italic"
-                        android:layout_toEndOf="@id/data_power"
-                        android:layout_alignBaseline="@id/data_power"
-                        android:id="@+id/units_power"/>
 
                 </RelativeLayout>
 
@@ -307,42 +260,6 @@
 
                 </RelativeLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginEnd="8dp"
-                    android:background="@color/white"/>
-
-                <!-- RIGHT BOTTOM -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:orientation="horizontal"
-                    android:paddingTop="16dp"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:text="@string/entrances_exits"
-                        android:textSize="20sp"
-                        android:gravity="center"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="24dp"
-                        android:text="29"
-                        android:textColor="@color/white"
-                        android:textSize="60sp"
-                        android:textStyle="italic"
-                        android:id="@+id/data_entrances"/>
-
-                </RelativeLayout>
-
             </LinearLayout>
 
         </LinearLayout>
@@ -352,9 +269,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/data_layout"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:backgroundTint="@color/red"
             android:textColor="@color/white"
-            android:text="refresh"/>
+            android:text="refresh"
+            android:id="@+id/refresh_button"/>
 
     </RelativeLayout>
 

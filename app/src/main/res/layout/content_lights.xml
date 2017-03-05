@@ -15,133 +15,186 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/color_text"
-        android:background="@drawable/color_picker_background"
         android:id="@+id/color_picker_layout">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
-            android:id="@+id/colors_picker_layout">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:src="@color/picker_red"
-                    android:id="@+id/color_picker_red"/>
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:src="@color/picker_dark_green"
-                    android:id="@+id/color_picker_dark_green"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:src="@color/picker_orange"
-                    android:id="@+id/color_picker_orange"/>
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:src="@color/picker_blue"
-                    android:id="@+id/color_picker_blue"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:src="@color/picker_yellow"
-                    android:id="@+id/color_picker_yellow"/>
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:src="@color/picker_dark_blue"
-                    android:id="@+id/color_picker_dark_blue"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:src="@color/picker_green"
-                    android:id="@+id/color_picker_green"/>
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:src="@color/picker_purple"
-                    android:id="@+id/color_picker_purple"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="2dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginStart="2dp"
-            android:layout_below="@id/colors_picker_layout"
-            android:id="@+id/color_picker_white"/>
+            android:layout_height="wrap_content"
+            android:background="@drawable/color_picker_background"
+            android:id="@+id/color_picker_outline_box">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:id="@+id/colors_picker_layout">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@color/picker_red"
+                        android:id="@+id/color_picker_red"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@color/picker_dark_green"
+                        android:id="@+id/color_picker_dark_green"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@color/picker_orange"
+                        android:id="@+id/color_picker_orange"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@color/picker_blue"
+                        android:id="@+id/color_picker_blue"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@color/picker_yellow"
+                        android:id="@+id/color_picker_yellow"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@color/picker_dark_blue"
+                        android:id="@+id/color_picker_dark_blue"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@color/picker_green"
+                        android:id="@+id/color_picker_green"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@color/picker_purple"
+                        android:id="@+id/color_picker_purple"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_below="@id/colors_picker_layout"
+                android:id="@+id/color_picker_white"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Brightness"
+            android:layout_below="@id/color_picker_outline_box"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:id="@+id/brightness_text"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/color_picker_background"
+            android:layout_below="@id/brightness_text">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="2dp"
+                android:orientation="horizontal"
+                android:id="@+id/brightness_background">
+
+                <ImageView
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:src="@color/bright"
+                    android:layout_weight="1"
+                    android:id="@+id/picker_bright"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@color/medium_bright"
+                    android:layout_weight="1"
+                    android:id="@+id/picker_medium_bright"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@color/medium_dim"
+                    android:layout_weight="1"
+                    android:id="@+id/picker_medium_dim"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@color/dim"
+                    android:layout_weight="1"
+                    android:id="@+id/picker_dim"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
 
     </RelativeLayout>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Horse Race Mode"
-        android:layout_alignParentEnd="true"
+        android:backgroundTint="@color/orange"
         android:layout_below="@id/color_picker_layout"
         android:id="@+id/button_horse_race"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_below="@id/color_picker_layout"
-        android:text="Change Brightness" />
 
 
 </RelativeLayout>
