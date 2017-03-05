@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "run: tea is readyyyyyy");
                 musicImage.setImageResource(R.drawable.ic_tea_grey);
                 musicOn = false;
-                tea++;
+                tea = 0;
             }
         }
     };
@@ -94,6 +94,14 @@ public class MainActivity extends AppCompatActivity {
         queue = Volley.newRequestQueue(this);
 
         handler.post(updater);
+
+        if (getIntent().getStringExtra("tea") != null) {
+            if (getIntent().getStringExtra("tea").equals("maketea")) {
+                send_request("maketea", 0);
+            } else if (getIntent().getStringExtra("tea").equals("stoptea")) {
+                send_request("stoptea", 0);
+            }
+        }
 
     }
 
