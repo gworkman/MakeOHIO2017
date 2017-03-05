@@ -21,4 +21,5 @@
     <color name="picker_yellow">#D3EB4D</color>
 
     <color name="dark_grey">#a4000000</color>
+    <color name="grey_remote">#7d000000</color>
 </resources>

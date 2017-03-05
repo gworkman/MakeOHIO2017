@@ -5,13 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    android:padding="16dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
     tools:context="jacob.ryan.gus.com.darwin.homeautomation.MainActivity"
     tools:showIn="@layout/activity_main">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:animateLayoutChanges="true">
 
         <!-- LIGHTS POWER -->
         <RelativeLayout
@@ -120,12 +123,28 @@
 
         </RelativeLayout>
 
-        <include layout="@layout/content_lights"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_below="@id/main_lights_layout"
-            android:id="@+id/main_color_options"/>
+            android:animateLayoutChanges="true"
+            android:id="@+id/options_layout">
+
+            <include layout="@layout/content_lights"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                android:id="@+id/main_color_options" />
+
+            <include layout="@layout/content_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                android:id="@+id/main_tv_options" />
+
+        </RelativeLayout>
 
         <!-- DATA VIEW -->
         <LinearLayout
@@ -133,7 +152,7 @@
             android:layout_height="300dp"
             android:background="@color/light_blue"
             android:layout_marginTop="16dp"
-            android:layout_below="@id/main_color_options"
+            android:layout_below="@id/options_layout"
             android:id="@+id/data_layout">
 
             <!-- LEFT HALF -->
