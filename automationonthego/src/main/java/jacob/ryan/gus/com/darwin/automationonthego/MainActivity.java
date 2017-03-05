@@ -1,61 +1,48 @@
 package jacob.ryan.gus.com.darwin.automationonthego;
 
-import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.wearable.activity.WearableActivity;
 import android.support.wearable.view.BoxInsetLayout;
 import android.util.Log;
 import android.view.View;
+import android.widget.Chronometer;
 import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.PendingResult;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.wearable.MessageApi;
-import com.google.android.gms.wearable.MessageEvent;
-import com.google.android.gms.wearable.Node;
-import com.google.android.gms.wearable.NodeApi;
-import com.google.android.gms.wearable.Wearable;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 
-public class MainActivity extends WearableActivity implements GoogleApiClient.ConnectionCallbacks {
+public class MainActivity extends WearableActivity {
 
     private BoxInsetLayout mContainerView;
-    private ImageView teaImage;
+    private ImageView teaImage, teaColor;
     private String TAG = "ANDROID WEAR APP";
-
-    private Node phoneNode;
-    private MessageApi.MessageListener messageListener;
-
     private int teaCount = 0;
+    private boolean makeTea = false;
+
+    public static String URL = "http://homeautomation.ngrok.io/";
 
     private Handler handler = new Handler();
     private Runnable runnable = new Runnable() {
         @Override
         public void run() {
-            place_order();
+            if (makeTea) {
+                place_order();
+
+            }
         }
     };
 
-    private GoogleApiClient googleApiClient;
-    private ResultCallback<Status> resultCallback = new ResultCallback<Status>() {
-        @Override
-        public void onResult(@NonNull Status status) {
-            // do things when the api is hooked up
-            new AsyncTask<Void, Void, Void>() {
-                @Override
-                protected Void doInBackground(Void... params) {
-                    Log.d(TAG, "doInBackground: it is working on the connectioning");
-                    sendStartMessage();
-                    return null;
-                }
-            }.execute();
-        }
-    };
+    private RequestQueue queue;
+
 
 
     @Override
@@ -67,115 +54,100 @@ public class MainActivity extends WearableActivity implements GoogleApiClient.Co
         Log.d(TAG, "onCreate: oncreate is started");
 
 
+        queue = Volley.newRequestQueue(this);
+
         mContainerView = (BoxInsetLayout) findViewById(R.id.container);
         teaImage = (ImageView) findViewById(R.id.tea_image);
+        teaColor = (ImageView) findViewById(R.id.tea_white);
 
         teaImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(TAG, "onClick: it is running");
+                if (teaCount == 0) {
+                    makeTea = true;
+                } else {
+                    makeTea = false;
+                }
+
                 place_order();
             }
         });
-
-
-        googleApiClient = new GoogleApiClient.Builder(MainActivity.this).addApi(Wearable.API).build();
-        googleApiClient.connect();
-        Log.d(TAG, "onCreate: attempted to connect");
     }
 
     @Override
     public void onEnterAmbient(Bundle ambientDetails) {
         super.onEnterAmbient(ambientDetails);
-        updateDisplay();
     }
 
     @Override
     public void onUpdateAmbient() {
         super.onUpdateAmbient();
-        updateDisplay();
     }
 
     @Override
     public void onExitAmbient() {
-        updateDisplay();
         super.onExitAmbient();
-    }
-
-    private void updateDisplay() {
-        if (isAmbient()) {
-            mContainerView.setBackgroundResource(R.color.orange);
-
-        } else {
-            mContainerView.setBackground(null);
-
-        }
     }
 
     private void place_order() {
 
         String message;
         if (teaCount == 0) {
-            message = "/maketea";
+            message = "maketea";
+            handler.postDelayed(runnable, 120000);
+
+            CountDownTimer count = new CountDownTimer(120000, 1000) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+
+                    Log.d(TAG, "onTick: time until complete " + millisUntilFinished / 1000);
+
+                    if (millisUntilFinished / 1000 < 20) {
+                        teaColor.setBackgroundResource(R.drawable.ic_tea_full);
+                    } else if (millisUntilFinished / 1000 < 40) {
+                        teaColor.setBackgroundResource(R.drawable.ic_tea_80);
+                    } else if (millisUntilFinished / 1000 < 60) {
+                        teaColor.setBackgroundResource(R.drawable.ic_tea_60);
+                    } else if (millisUntilFinished / 1000 < 80) {
+                        teaColor.setBackgroundResource(R.drawable.ic_tea_40);
+                    } else if (millisUntilFinished / 1000 < 100) {
+                        teaColor.setBackgroundResource(R.drawable.ic_tea_20);
+                    } else {
+                        teaColor.setBackgroundResource(R.drawable.ic_tea_0);
+                    }
+                }
+
+                @Override
+                public void onFinish() {
+                    teaColor.setBackgroundResource(R.drawable.ic_tea_full);
+                }
+            };
+            count.start();
+
             teaCount++;
         } else {
-            message = "/stoptea";
+            message = "stoptea";
+            teaColor.setImageResource(R.drawable.ic_tea_full);
             teaCount = 0;
         }
 
-        PendingResult<MessageApi.SendMessageResult> result = Wearable.MessageApi.sendMessage(googleApiClient, phoneNode.getId(), message, null);
+        send_request(message);
 
-        result.setResultCallback(new ResultCallback<MessageApi.SendMessageResult>() {
+    }
+
+    public void send_request(String sendCommand) {
+        queue.add(new StringRequest(Request.Method.GET, URL + sendCommand, new Response.Listener<String>() {
             @Override
-            public void onResult(MessageApi.SendMessageResult sendMessageResult) {
-                //do nothing
-                handler.postDelayed(runnable, 120000);
-            }
-        });
-    }
+            public void onResponse(String response) {
+                Log.d(TAG, "onResponse: response is " + response);
 
-    @Override
-    public void onConnected(@Nullable Bundle bundle) {
-        Log.d(TAG, "onConnected: connected to google services api");
-         messageListener = new MessageApi.MessageListener() {
+            }
+        }, new Response.ErrorListener() {
             @Override
-            public void onMessageReceived(MessageEvent messageEvent) {
-                // do things when a message is sent from phone to watch
+            public void onErrorResponse(VolleyError error) {
+
             }
-        };
-        Wearable.MessageApi.addListener(googleApiClient, messageListener).setResultCallback(resultCallback);
-    }
-
-
-
-    @Override
-    public void onConnectionSuspended(int i) {
-        // empty
-    }
-
-    private void sendStartMessage() {
-
-        NodeApi.GetConnectedNodesResult rawNodes =
-                Wearable.NodeApi.getConnectedNodes(googleApiClient).await();
-
-        Log.d(TAG, "sendStartMessage: scanning nodes");
-
-        for (final Node node : rawNodes.getNodes()) {
-            Log.v(TAG, "Node: " + node.getId());
-            PendingResult<MessageApi.SendMessageResult> result = Wearable.MessageApi.sendMessage(googleApiClient, node.getId(), "/start", null);
-
-            result.setResultCallback(new ResultCallback<MessageApi.SendMessageResult>() {
-                @Override
-                public void onResult(MessageApi.SendMessageResult sendMessageResult) {
-                    Log.v(TAG, "callback is done.");
-                    phoneNode = node;
-                }
-            });
-        }
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Wearable.MessageApi.removeListener(googleApiClient, messageListener);
+        }));
     }
 }

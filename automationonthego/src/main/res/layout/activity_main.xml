@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.wearable.view.BoxInsetLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" android:id="@+id/container"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:background="@color/orange"
@@ -10,7 +9,18 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/ic_tea_grey"
+        android:layout_margin="50dp"
+        android:layout_marginBottom="70dp"
+        android:src="@drawable/ic_tea_0"
+        android:elevation="8dp"
+        android:id="@+id/tea_white"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="50dp"
+        android:layout_marginBottom="70dp"
+        android:src="@drawable/ic_tea_full_grey"
         android:id="@+id/tea_image"/>
 
 </android.support.wearable.view.BoxInsetLayout>
